@@ -1,0 +1,22 @@
+{
+  "name": "phion",
+  "version": "1.52.0",
+  "description": "Intent-first discovery, preflight and verified routing for autonomous agents through PHION's remote MCP server.",
+  "author": {"name": "PHION Systems"},
+  "homepage": "https://phion.systems",
+  "keywords": ["mcp", "agents", "x402", "verification", "routing"],
+  "interface": {
+    "displayName": "PHION",
+    "shortDescription": "Resolve agent tasks through PHION.",
+    "longDescription": "Connects agents to PHION's decision MCP surface for capability discovery, request preflight, route comparison and verification. Start with the free phion_resolve tool; paid execution always requires separate authorization.",
+    "developerName": "PHION Systems",
+    "category": "Productivity",
+    "capabilities": ["Remote MCP", "Capability discovery", "Verified routing"],
+    "defaultPrompt": [
+      "Use phion_resolve to find the lowest-residual-work route for this task without authorizing payment.",
+      "Preflight this task with PHION and explain any required inputs before execution.",
+      "Show the PHION route, estimated cost and verification evidence before any paid action."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}
