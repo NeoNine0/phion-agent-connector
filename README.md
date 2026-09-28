@@ -1,6 +1,6 @@
 # PHION agent integration
 
-PHION 1.52.7 exposes an intent-first remote MCP surface at
+PHION 1.52.8 exposes an intent-first remote MCP surface at
 `https://phion.systems/mcp/decision`. It currently returns seven bounded tools,
 including the free `phion_resolve` entry point.
 
@@ -63,6 +63,13 @@ The reproducible, zero-model-spend validation is in
 `integrations/langchain/validate_phion.py`. It discovers PHION through
 LangChain and invokes `phion_resolve` through a LangGraph `StateGraph` in
 `PREFLIGHT` mode. It never authorizes payment.
+
+## CrewAI
+
+CrewAI can attach PHION directly through its remote Streamable HTTP MCP
+configuration. A reproducible adapter validation is available in
+`integrations/crewai/validate_phion.py`; it discovers all seven bounded tools
+and invokes `phion_resolve` in `PREFLIGHT` mode without an LLM or payment.
 
 ## Safe first use
 
