@@ -1,6 +1,6 @@
 # PHION agent integration
 
-PHION 1.52.8 exposes an intent-first remote MCP surface at
+PHION 1.52.9 exposes an intent-first remote MCP surface at
 `https://phion.systems/mcp/decision`. It currently returns seven bounded tools,
 including the free `phion_resolve` entry point.
 
@@ -70,6 +70,14 @@ CrewAI can attach PHION directly through its remote Streamable HTTP MCP
 configuration. A reproducible adapter validation is available in
 `integrations/crewai/validate_phion.py`; it discovers all seven bounded tools
 and invokes `phion_resolve` in `PREFLIGHT` mode without an LLM or payment.
+
+## Composio
+
+PHION is registered in the validated Composio project as the custom MCP toolkit
+`CUSTOM_PHION`. Composio synchronized seven tools from the public decision
+endpoint, including `CUSTOM_PHION_PHION_RESOLVE`, and successfully executed a
+zero-payment `PREFLIGHT` request. This proves project-scoped installation and
+runtime invocation; it does not claim a global Composio catalog listing.
 
 ## Safe first use
 
