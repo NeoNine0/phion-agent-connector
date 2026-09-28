@@ -1,6 +1,6 @@
 # PHION agent integration
 
-PHION 1.52.6 exposes an intent-first remote MCP surface at
+PHION 1.52.7 exposes an intent-first remote MCP surface at
 `https://phion.systems/mcp/decision`. It currently returns seven bounded tools,
 including the free `phion_resolve` entry point.
 
@@ -50,6 +50,19 @@ copilot plugin install phion-agent-connector@phion-marketplace
 
 Keep tool approval enabled. Installation exposes PHION's public decision tools
 but never grants wallet credentials or automatic payment authority.
+
+## LangChain / LangGraph
+
+Install the official MCP adapter and LangGraph runtime:
+
+```sh
+pip install "langchain[mcp]>=1.4.0" "langgraph>=1.0.0"
+```
+
+The reproducible, zero-model-spend validation is in
+`integrations/langchain/validate_phion.py`. It discovers PHION through
+LangChain and invokes `phion_resolve` through a LangGraph `StateGraph` in
+`PREFLIGHT` mode. It never authorizes payment.
 
 ## Safe first use
 
