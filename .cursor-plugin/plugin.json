@@ -9,6 +9,7 @@
   "homepage": "https://phion.systems",
   "repository": "https://github.com/NeoNine0/phion-agent-connector",
   "license": "MIT",
+  "logo": "assets/phion-logo.svg",
   "keywords": [
     "mcp",
     "agents",

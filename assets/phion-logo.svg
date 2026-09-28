@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">PHION</title>
+  <desc id="desc">PHION agent connector mark</desc>
+  <rect width="512" height="512" rx="104" fill="#07140f"/>
+  <path d="M140 112h124c76 0 124 44 124 112s-48 112-124 112h-48v64h-76V112zm76 66v92h42c34 0 52-16 52-46s-18-46-52-46h-42z" fill="#35edb0"/>
+  <circle cx="364" cy="366" r="34" fill="#ffffff"/>
+</svg>
