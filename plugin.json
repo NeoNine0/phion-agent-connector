@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "phion-agent-connector",
+  "version": "1.52.6",
+  "description": "Resolve, compare and verify agent service routes through PHION's public MCP decision surface.",
+  "author": {
+    "name": "PHION Systems",
+    "email": "api@phion.systems",
+    "url": "https://phion.systems"
+  },
+  "homepage": "https://phion.systems",
+  "repository": "https://github.com/NeoNine0/phion-agent-connector",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "agents",
+    "copilot",
+    "x402",
+    "routing",
+    "verification"
+  ]
+}

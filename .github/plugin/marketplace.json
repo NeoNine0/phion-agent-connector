@@ -1,0 +1,19 @@
+{
+  "name": "phion-marketplace",
+  "owner": {
+    "name": "PHION Systems",
+    "email": "api@phion.systems"
+  },
+  "metadata": {
+    "description": "Official PHION agent integrations.",
+    "version": "1.52.6"
+  },
+  "plugins": [
+    {
+      "name": "phion-agent-connector",
+      "description": "Resolve, compare and verify agent service routes through PHION.",
+      "version": "1.52.6",
+      "source": "."
+    }
+  ]
+}

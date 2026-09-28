@@ -37,6 +37,20 @@ Copy `.vscode/mcp.json` into the root of a VS Code workspace, then start the
 `phion` server from VS Code's MCP management UI. The portable `.mcp.json` is
 also included for hosts that support the shared MCP configuration format.
 
+[Install PHION MCP in VS Code](vscode:mcp/install?%7B%22name%22%3A%22phion%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fphion.systems%2Fmcp%2Fdecision%22%7D)
+
+The repository is also a portable Agent Plugins 1.0 package for VS Code and
+GitHub Copilot. Install it from source with the repository URL, or register the
+official Copilot marketplace and install the connector:
+
+```sh
+copilot plugin marketplace add NeoNine0/phion-agent-connector
+copilot plugin install phion-agent-connector@phion-marketplace
+```
+
+Keep tool approval enabled. Installation exposes PHION's public decision tools
+but never grants wallet credentials or automatic payment authority.
+
 ## Safe first use
 
 1. Start the remote server connection.
