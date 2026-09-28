@@ -1,6 +1,6 @@
 # PHION agent integration
 
-PHION 1.52.0 exposes an intent-first remote MCP surface at
+PHION 1.52.6 exposes an intent-first remote MCP surface at
 `https://phion.systems/mcp/decision`. It currently returns seven bounded tools,
 including the free `phion_resolve` entry point.
 
@@ -9,6 +9,14 @@ including the free `phion_resolve` entry point.
 [Install PHION in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=phion&config=eyJ1cmwiOiJodHRwczovL3BoaW9uLnN5c3RlbXMvbWNwL2RlY2lzaW9uIn0%3D)
 
 Alternatively, copy `.cursor/mcp.json` into the root of a Cursor project.
+
+The repository also includes a current Cursor Plugin manifest at
+`.cursor-plugin/plugin.json`. Installation only adds the public MCP endpoint;
+it does not include credentials, wallet access or automatic spending authority.
+
+For the safest default, keep Cursor tool approval enabled. Start with the free
+`phion_resolve` tool and inspect the proposed route, inputs, price and evidence
+contract before approving any paid execution.
 
 ## Claude
 

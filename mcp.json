@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "phion": {
+      "url": "https://phion.systems/mcp/decision"
+    }
+  }
+}

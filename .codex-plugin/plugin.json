@@ -1,6 +1,6 @@
 {
   "name": "phion",
-  "version": "1.52.0",
+  "version": "1.52.6",
   "description": "Intent-first discovery, preflight and verified routing for autonomous agents through PHION's remote MCP server.",
   "author": {"name": "PHION Systems"},
   "homepage": "https://phion.systems",
