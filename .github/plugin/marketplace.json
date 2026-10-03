@@ -6,13 +6,13 @@
   },
   "metadata": {
     "description": "Official PHION agent integrations.",
-    "version": "1.52.6"
+    "version": "1.57.0"
   },
   "plugins": [
     {
       "name": "phion-agent-connector",
       "description": "Resolve, compare and verify agent service routes through PHION.",
-      "version": "1.52.6",
+      "version": "1.57.0",
       "source": "."
     }
   ]

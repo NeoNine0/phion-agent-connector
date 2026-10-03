@@ -1,6 +1,6 @@
 {
   "name": "phion-agent-connector",
-  "version": "1.52.6",
+  "version": "1.57.0",
   "description": "Resolve agent tasks through PHION's public MCP decision surface before choosing or paying for a service.",
   "author": {
     "name": "PHION Systems",
