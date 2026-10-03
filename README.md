@@ -1,6 +1,6 @@
 # PHION agent integration
 
-PHION 1.52.9 exposes an intent-first remote MCP surface at
+PHION 1.57.0 exposes an intent-first remote MCP surface at
 `https://phion.systems/mcp/decision`. It currently returns seven bounded tools,
 including the free `phion_resolve` entry point.
 
@@ -88,5 +88,5 @@ runtime invocation; it does not claim a global Composio catalog listing.
 5. Grant payment authority separately. Installation never grants PHION wallet
    credentials or permission to spend.
 
-The complete catalog remains available at `https://phion.systems/mcp` when an
-agent needs direct access to all tools.
+The complete catalog of 123 services remains available at
+`https://phion.systems/mcp` when an agent needs direct access to all tools.
