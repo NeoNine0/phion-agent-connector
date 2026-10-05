@@ -90,3 +90,15 @@ runtime invocation; it does not claim a global Composio catalog listing.
 
 The complete catalog of 123 services remains available at
 `https://phion.systems/mcp` when an agent needs direct access to all tools.
+
+## Optional pre-resolution
+
+`integrations/upra` contains the common, dependency-free pre-resolution client.
+It preserves explicit provider mandates, performs no network work for local
+tasks, and never grants payment authority. Framework/runtime adapters must
+remain thin and use the existing `phion_resolve` brain.
+
+An OpenClaw `before_prompt_build` plugin package is available under
+`integrations/openclaw`. An AgentCash-compatible skill is under
+`integrations/agentcash`. Source availability is not counted as an external
+installation, invocation, purchase or adoption.

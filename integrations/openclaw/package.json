@@ -1,0 +1,17 @@
+{
+  "name":"@phion-systems/openclaw-pre-resolution",
+  "version":"1.0.0",
+  "type":"module",
+  "license":"Apache-2.0",
+  "description":"Optional provider-neutral PHION pre-resolution for external capabilities",
+  "files":["dist/index.js","openclaw.plugin.json","README.md"],
+  "peerDependencies":{"openclaw":">=2026.9.8"},
+  "openclaw":{
+    "extensions":["./dist/index.js"],
+    "runtimeExtensions":["./dist/index.js"],
+    "compat":{"pluginApi":">=2026.9.8","minGatewayVersion":"2026.9.8"},
+    "build":{"openclawVersion":"2026.9.8","pluginSdkVersion":"2026.9.8"},
+    "plugin":{"id":"phion-pre-resolution","label":"PHION Pre-Resolution"},
+    "install":{"clawhubSpec":"NeoNine0/phion-agent-connector","defaultChoice":"clawhub","minHostVersion":">=2026.9.8"}
+  }
+}
