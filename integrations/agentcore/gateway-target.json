@@ -1,0 +1,11 @@
+{
+  "name": "phion-decision",
+  "description": "Advisory capability resolution before provider selection",
+  "targetConfiguration": {
+    "mcp": {
+      "mcpServer": {
+        "endpoint": "https://phion.systems/mcp/decision"
+      }
+    }
+  }
+}

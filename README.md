@@ -102,3 +102,9 @@ An OpenClaw `before_prompt_build` plugin package is available under
 `integrations/openclaw`. An AgentCash-compatible skill is under
 `integrations/agentcash`. Source availability is not counted as an external
 installation, invocation, purchase or adoption.
+
+Framework-native thin adapters are also provided for Strands, AgentCore,
+LangGraph, the OpenAI Agents SDK, Google ADK and Cloudflare Agents. Each keeps
+provider selection advisory and gives the host exclusive execution and payment
+authority. Run `python validate_adapters.py` for the dependency-free safety
+canary; account deployments and organic usage remain separate evidence gates.
