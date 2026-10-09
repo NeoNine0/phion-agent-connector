@@ -1,5 +1,7 @@
 # PHION agent integration
 
+[PHION on Smithery](https://smithery.ai/servers/phion-systems/phion)
+
 PHION 1.57.0 exposes an intent-first remote MCP surface at
 `https://phion.systems/mcp/decision`. It currently returns seven bounded tools,
 including the free `phion_resolve` entry point.
@@ -46,65 +48,3 @@ official Copilot marketplace and install the connector:
 ```sh
 copilot plugin marketplace add NeoNine0/phion-agent-connector
 copilot plugin install phion-agent-connector@phion-marketplace
-```
-
-Keep tool approval enabled. Installation exposes PHION's public decision tools
-but never grants wallet credentials or automatic payment authority.
-
-## LangChain / LangGraph
-
-Install the official MCP adapter and LangGraph runtime:
-
-```sh
-pip install "langchain[mcp]>=1.4.0" "langgraph>=1.0.0"
-```
-
-The reproducible, zero-model-spend validation is in
-`integrations/langchain/validate_phion.py`. It discovers PHION through
-LangChain and invokes `phion_resolve` through a LangGraph `StateGraph` in
-`PREFLIGHT` mode. It never authorizes payment.
-
-## CrewAI
-
-CrewAI can attach PHION directly through its remote Streamable HTTP MCP
-configuration. A reproducible adapter validation is available in
-`integrations/crewai/validate_phion.py`; it discovers all seven bounded tools
-and invokes `phion_resolve` in `PREFLIGHT` mode without an LLM or payment.
-
-## Composio
-
-PHION is registered in the validated Composio project as the custom MCP toolkit
-`CUSTOM_PHION`. Composio synchronized seven tools from the public decision
-endpoint, including `CUSTOM_PHION_PHION_RESOLVE`, and successfully executed a
-zero-payment `PREFLIGHT` request. This proves project-scoped installation and
-runtime invocation; it does not claim a global Composio catalog listing.
-
-## Safe first use
-
-1. Start the remote server connection.
-2. Confirm `phion_resolve` is present in `tools/list`.
-3. Call `phion_resolve` before selecting a paid capability.
-4. Review route, price, required inputs and evidence contract.
-5. Grant payment authority separately. Installation never grants PHION wallet
-   credentials or permission to spend.
-
-The complete catalog of 123 services remains available at
-`https://phion.systems/mcp` when an agent needs direct access to all tools.
-
-## Optional pre-resolution
-
-`integrations/upra` contains the common, dependency-free pre-resolution client.
-It preserves explicit provider mandates, performs no network work for local
-tasks, and never grants payment authority. Framework/runtime adapters must
-remain thin and use the existing `phion_resolve` brain.
-
-An OpenClaw `before_prompt_build` plugin package is available under
-`integrations/openclaw`. An AgentCash-compatible skill is under
-`integrations/agentcash`. Source availability is not counted as an external
-installation, invocation, purchase or adoption.
-
-Framework-native thin adapters are also provided for Strands, AgentCore,
-LangGraph, the OpenAI Agents SDK, Google ADK and Cloudflare Agents. Each keeps
-provider selection advisory and gives the host exclusive execution and payment
-authority. Run `python validate_adapters.py` for the dependency-free safety
-canary; account deployments and organic usage remain separate evidence gates.
