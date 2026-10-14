@@ -1,6 +1,6 @@
 {
   "name": "phion-decision",
-  "description": "Advisory capability resolution before provider selection",
+  "description": "Find and compare an eligible external service for search, inference, research, enrichment, evidence, compliance, payment safety, security, provider comparison, tool verification, agent trust, transaction assurance, normalization, on-chain data or customer support. Advisory only; never pays or executes.",
   "targetConfiguration": {
     "mcp": {
       "mcpServer": {

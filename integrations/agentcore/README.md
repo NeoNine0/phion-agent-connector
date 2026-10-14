@@ -10,3 +10,8 @@ PHION's current x402 routes remain unchanged. AgentCore Payments can handle a
 payment instrument. Treat deployment and a successful AWS-origin invocation
 as separate evidence gates.
 
+The target description is task-facing so Gateway semantic discovery can offer
+PHION for the 15 supported capability families without requiring an agent to
+know the resolver's product name. The target still exposes the single MCP
+decision endpoint and does not enable AgentCore Payments.
+
