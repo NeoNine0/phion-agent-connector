@@ -7,5 +7,7 @@ It intentionally excludes credentials, private prompts, routing algorithms,
 provider contracts, operational telemetry, deployment configuration and
 internal implementation details.
 
-The canonical service is `https://phion.systems/mcp/decision`. Installation
-does not grant payment authority or access to a user's wallet.
+The minimal task-first service is `https://phion.systems/mcp/task`. It delegates
+to PHION's existing resolver and does not expose private routing logic. The
+decision surface remains available at `https://phion.systems/mcp/decision`.
+Installation does not grant payment authority or access to a user's wallet.
