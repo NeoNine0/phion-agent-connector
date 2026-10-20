@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "phion-agent-connector",
-  "version": "1.57.0",
+  "version": "1.57.1",
   "description": "Find the best eligible service for an agent task through PHION's task-first MCP surface.",
   "author": {
     "name": "PHION Systems",

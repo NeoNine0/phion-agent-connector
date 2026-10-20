@@ -1,6 +1,6 @@
 {
   "name": "phion-agent-connector",
-  "version": "1.57.0",
+  "version": "1.57.1",
   "description": "Find the best eligible service for search, inference, enrichment, verification and other agent tasks before choosing or paying.",
   "author": {
     "name": "PHION Systems",

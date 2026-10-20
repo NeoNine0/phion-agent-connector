@@ -1,6 +1,6 @@
 {
   "name": "phion",
-  "version": "1.57.0",
+  "version": "1.57.1",
   "description": "Task-first service discovery and verified routing for autonomous agents through PHION's remote MCP server.",
   "author": {"name": "PHION Systems"},
   "homepage": "https://phion.systems",

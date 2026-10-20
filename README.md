@@ -1,17 +1,18 @@
-# PHION agent integration
+# PHION Task Router
 
 [PHION on Smithery](https://smithery.ai/servers/phion-systems/phion)
 
-PHION 1.57.0 exposes a task-first remote MCP surface at
+PHION 1.57.1 exposes one task-first remote MCP surface at
 `https://phion.systems/mcp/task`. It returns one free entry point,
-`find_best_service_for_task`, for common outcomes such as web search,
-inference, enrichment, evidence, compliance, security, payments, provider
-comparison, transaction assurance, normalization and on-chain intelligence.
+`find_best_service_for_task`, and delegates eligible requests to the existing
+provider-neutral `phion_resolve` engine. Unsupported or ambiguous tasks
+abstain instead of being forced into an unrelated service.
 
-Agents describe the outcome they need. PHION checks current eligible offers
-and uses the same provider-neutral `phion_resolve` decision engine internally.
-Unsupported or ambiguous tasks abstain instead of being forced into an
-unrelated service.
+The agent describes the outcome it needs; it does not need to learn PHION's
+catalog or the resolver's name. Search, inference, enrichment, evidence,
+compliance, security, payments, provider comparison, transaction assurance,
+normalization and on-chain intelligence are resolved behind the same task
+entry. Installation grants neither wallet access nor spending authority.
 
 Machine-readable task discovery is published at
 `https://phion.systems/.well-known/phion-task-discovery.json`.
@@ -27,8 +28,8 @@ The repository also includes a current Cursor Plugin manifest at
 it does not include credentials, wallet access or automatic spending authority.
 
 For the safest default, keep Cursor tool approval enabled. Start with the free
-task finder and inspect the proposed route, inputs, price and evidence contract
-before approving any paid execution.
+`find_best_service_for_task` tool and inspect the proposed route, inputs, price
+and evidence contract before approving any paid execution.
 
 ## Claude
 
@@ -71,7 +72,7 @@ AgentCash and OpenClaw. They all use the same public PHION decision surface;
 none grants payment or provider-execution authority.
 
 The AgentCore integration has been validated through an IAM-protected Gateway
-target. Agents assigned to that Gateway inherit access to PHION's resolver
+target. Agents assigned to that Gateway inherit access to `phion_resolve`
 without per-agent configuration. This proves shared `PRE_TOOL` availability,
 not automatic invocation or external adoption.
 
@@ -101,10 +102,21 @@ a free `PREFLIGHT` invocation. This does not claim a global catalog listing.
 4. Review the proposed route, inputs, price and evidence contract.
 5. Authorize payment separately only when required.
 
+Example task requests:
+
+```text
+Find official web evidence for this claim.
+Enrich this company and return evidence for every material field.
+Run this inference with the lowest verified total cost under my limit.
+```
+
+These are examples of outcomes, not separate PHION products. MCP, HTTP/OpenAPI,
+x402, A2A and the framework adapters are compatible access mechanisms for the
+same task router.
+
 The seven-tool decision surface remains available at
 `https://phion.systems/mcp/decision`, and the complete catalog remains
-available at `https://phion.systems/mcp` for agents that need direct access to
-all published services.
+available at `https://phion.systems/mcp` for advanced clients.
 
 ## Evidence boundary
 
