@@ -1,0 +1,96 @@
+{
+  "name": "PHION Task Router - Free Preflight",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Run manually",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "task-input",
+              "name": "task",
+              "type": "string",
+              "value": "Find the safest eligible provider for this task"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "task-input",
+      "name": "Describe required outcome",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://phion.systems/mcp/decision",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json, text/event-stream"
+            },
+            {
+              "name": "x-phion-discovery-source",
+              "value": "n8n"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'phion_resolve', arguments: { task: $json.task, executionMode: 'PREFLIGHT' } } }) }}",
+        "options": {}
+      },
+      "id": "phion-preflight",
+      "name": "Find best service with PHION",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [760, 300]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Run manually": {
+      "main": [
+        [
+          {
+            "node": "Describe required outcome",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Describe required outcome": {
+      "main": [
+        [
+          {
+            "node": "Find best service with PHION",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d58cf54a-5eb5-4ffb-b7d6-7e62cf270f1f",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

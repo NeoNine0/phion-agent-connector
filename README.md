@@ -81,6 +81,13 @@ provider.
 Read the result from `steps.phion.outputs.response`. Keep any later paid or
 provider execution step separate and explicitly authorized.
 
+## n8n
+
+Import `integrations/n8n/phion-task-router.json` to add a credential-free,
+decision-only PHION step to an n8n workflow. It uses the built-in HTTP Request
+node, calls only free `PREFLIGHT`, and leaves payment and provider execution to
+a separate explicitly authorized step.
+
 ## Framework and runtime adapters
 
 The repository includes optional thin adapters for Amazon Bedrock AgentCore,
