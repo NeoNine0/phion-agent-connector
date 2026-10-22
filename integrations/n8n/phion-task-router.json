@@ -2,6 +2,19 @@
   "name": "PHION Task Router - Free Preflight",
   "nodes": [
     {
+      "parameters": {
+        "content": "## PHION Task Router\nDescribe the outcome you need. PHION returns a free, provider-neutral preflight decision or an explicit abstention. No credentials are required.",
+        "height": 180,
+        "width": 420,
+        "color": 5
+      },
+      "id": "overview-note",
+      "name": "How this workflow works",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [220, 60]
+    },
+    {
       "parameters": {},
       "id": "manual-trigger",
       "name": "Run manually",
@@ -57,6 +70,19 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [760, 300]
+    },
+    {
+      "parameters": {
+        "content": "## Safety boundary\nThis workflow only requests `PREFLIGHT`. It cannot authorize payment or execute a provider. Keep any paid or execution step separate and explicitly approved.",
+        "height": 180,
+        "width": 420,
+        "color": 3
+      },
+      "id": "safety-note",
+      "name": "Safety boundary",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [720, 60]
     }
   ],
   "pinData": {},
