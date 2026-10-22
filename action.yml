@@ -1,0 +1,55 @@
+name: PHION Task Router
+description: Resolve an external agent task through PHION without granting payment or execution authority.
+author: PHION Systems
+
+branding:
+  icon: compass
+  color: blue
+
+inputs:
+  task:
+    description: The outcome or external capability the agent needs.
+    required: true
+  endpoint:
+    description: PHION decision-only MCP endpoint.
+    required: false
+    default: https://phion.systems/mcp/decision
+
+outputs:
+  response:
+    description: The complete PHION PREFLIGHT response.
+    value: ${{ steps.resolve.outputs.response }}
+
+runs:
+  using: composite
+  steps:
+    - id: resolve
+      name: Resolve task without payment authority
+      shell: bash
+      env:
+        PHION_TASK: ${{ inputs.task }}
+        PHION_ENDPOINT: ${{ inputs.endpoint }}
+      run: |
+        set -euo pipefail
+        request_file="$(mktemp)"
+        response_file="$(mktemp)"
+        trap 'rm -f "$request_file" "$response_file"' EXIT
+
+        jq -n --arg task "$PHION_TASK" \
+          '{jsonrpc:"2.0",id:1,method:"tools/call",params:{name:"phion_resolve",arguments:{task:$task,executionMode:"PREFLIGHT"}}}' \
+          > "$request_file"
+
+        curl --fail-with-body --silent --show-error "$PHION_ENDPOINT" \
+          -H 'content-type: application/json' \
+          -H 'accept: application/json, text/event-stream' \
+          -H 'x-phion-discovery-source: github_actions_marketplace' \
+          --data-binary "@$request_file" \
+          > "$response_file"
+
+        delimiter="PHION_RESPONSE_$(date +%s)_$RANDOM"
+        {
+          echo "response<<$delimiter"
+          cat "$response_file"
+          echo
+          echo "$delimiter"
+        } >> "$GITHUB_OUTPUT"

@@ -64,6 +64,23 @@ copilot plugin install phion-agent-connector@phion-marketplace
 Keep tool approval enabled. Installation exposes PHION's public decision tools
 but never grants wallet credentials or automatic payment authority.
 
+## GitHub Actions
+
+Use the repository as a decision-only composite action. It performs one free
+`PREFLIGHT` resolution and exposes the structured response as an output; it
+does not accept wallet credentials, authorize payment or execute the selected
+provider.
+
+```yaml
+- id: phion
+  uses: NeoNine0/phion-agent-connector@v1
+  with:
+    task: "Find the safest eligible provider for this external task"
+```
+
+Read the result from `steps.phion.outputs.response`. Keep any later paid or
+provider execution step separate and explicitly authorized.
+
 ## Framework and runtime adapters
 
 The repository includes optional thin adapters for Amazon Bedrock AgentCore,
