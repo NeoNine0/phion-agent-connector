@@ -3,8 +3,8 @@
   "nodes": [
     {
       "parameters": {
-        "content": "## PHION Task Router\nDescribe the outcome you need. PHION returns a free, provider-neutral preflight decision or an explicit abstention. No credentials are required.",
-        "height": 180,
+        "content": "## PHION Task Router\nUse this workflow when an automation needs an external capability but has not selected a provider. Replace the example task with the required outcome, then run the workflow. PHION evaluates eligible routes and returns a free, provider-neutral preflight decision or an explicit abstention. No account, API key, wallet, or payment credential is required.",
+        "height": 220,
         "width": 420,
         "color": 5
       },
@@ -73,8 +73,8 @@
     },
     {
       "parameters": {
-        "content": "## Safety boundary\nThis workflow only requests `PREFLIGHT`. It cannot authorize payment or execute a provider. Keep any paid or execution step separate and explicitly approved.",
-        "height": 180,
+        "content": "## Review the result before continuing\nThe response contains a recommendation or abstention plus structured evidence and authority fields. This workflow only requests `PREFLIGHT`: it cannot authorize payment, move funds, or execute a provider. Preserve an explicitly selected provider. Add any later paid or execution step separately, enforce the workflow owner's budget and approval policy, and stop when PHION reports insufficient evidence.",
+        "height": 220,
         "width": 420,
         "color": 3
       },
